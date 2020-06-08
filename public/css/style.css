@@ -1,0 +1,77 @@
+.banner-area {
+    background: linear-gradient(#F54052, #F45625);
+    width: 100%;
+    height: calc(100vh - 101px);
+}
+
+.btn {
+    outline: none !important;
+}
+
+
+/* HEADER */
+
+.navbar {
+    background: #F54052 !important;
+}
+
+.navbar-collapse {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end !important;
+}
+
+.navbar-nav {
+    margin-right: initial !important;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;    
+    color: #FFFFFF !important;
+    font-weight: bold;
+    margin: 1rem 3rem;
+}
+
+.navbar-brand .fa {
+    font-size: 2.7rem;
+}
+
+.navbar-title {
+    margin-left: 0.5rem;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    margin: 0rem 1rem;
+    padding: 0.5rem 2rem !important;
+    border: 1px solid #FFFFFF;
+    border-radius: 50px;
+}
+
+.navbar .navbar-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    margin-right: 3rem;
+}
+
+.navbar .navbar-form .form-control {
+    border-radius: 50px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    border-right: 1px solid #F54052;
+}
+
+.navbar .fa-search {
+    color: #F54052;
+}
+
+.navbar-form .btn {
+    margin-left: -8px;
+}
+
+
