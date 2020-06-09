@@ -1,5 +1,9 @@
+body {
+    overflow-x: hidden;
+}
+
 .banner-area {
-    background: linear-gradient(#F54052, #F45625);
+    background: linear-gradient(#FFFFFF, #FFFFFF);
     width: 100%;
     height: calc(100vh - 101px);
 }
@@ -8,8 +12,13 @@
     outline: none !important;
 }
 
+.container {
+    max-width: 100vw !important;
+    min-width: 100vw !important;
+    padding: 0 !important;
+}
 
-/* HEADER */
+/***************** header *****************/
 
 .navbar {
     background: #F54052 !important;
@@ -22,7 +31,7 @@
 }
 
 .navbar-nav {
-    margin-right: initial !important;
+    margin-right: 3rem !important;
 }
 
 .navbar-brand {
@@ -31,6 +40,7 @@
     color: #FFFFFF !important;
     font-weight: bold;
     margin: 1rem 3rem;
+    font-size: 0.9rem;
 }
 
 .navbar-brand .fa {
@@ -43,10 +53,11 @@
 
 .nav-link {
     color: #FFFFFF !important;
-    margin: 0rem 1rem;
-    padding: 0.5rem 2rem !important;
-    border: 1px solid #FFFFFF;
+    margin: 0rem 0rem;
+    padding: 0.5rem 1rem !important;
     border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .navbar .navbar-form {
@@ -55,7 +66,7 @@
     align-items: center;
     background-color: #FFFFFF;
     border-radius: 50px;
-    margin-right: 3rem;
+    margin-right: 1rem;
 }
 
 .navbar .navbar-form .form-control {
@@ -64,6 +75,7 @@
     border-bottom-right-radius: 0px;
     border: none;
     border-right: 1px solid #F54052;
+    font-size: 0.9rem;
 }
 
 .navbar .fa-search {
@@ -74,4 +86,83 @@
     margin-left: -8px;
 }
 
+/***************** footer *****************/
+
+.footer {
+    width: 100%;
+    height: 25rem;
+    background-color: #1A1A1A;
+    margin-top: 3rem;
+}
+
+/********************************** HOME **********************************/
+
+/***************** banner *****************/
+
+.banner-area {
+    margin-bottom: 5rem;
+}
+
+.banner-area .banner-img {
+    min-height: 80%;
+    background-image: url('../images/cover2.jpg');
+    background-size: cover;
+}
+
+.banner-area .banner-img .col{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.banner-description {
+    font-size: 4.5rem !important;
+    line-height: 1.4;
+    max-width: 37rem;
+}
+
+/***************** service *****************/
+
+.banner-area .services {
+    width: 100%;
+    margin-top: -5rem;
+}
+
+.service {
+    height: 10rem;
+    width: 10rem;
+    background-color: #F54052;
+    border-radius: 50%;
+    margin: 0rem 2rem;
+}
+
+.service p {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/***************** new books *****************/
+
+.home-books-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.books-home {
+    max-width: 1352px !important;
+    margin: 2rem;
+}
+
+.book-home {
+    background-color: #F3F3F3;
+    height: 25rem;
+    max-width: 25rem !important;
+    min-width: 20rem !important;
+    margin: 1rem;
+}
+
+.book-home .card-img-top {
+    height: 12rem;
+}
 

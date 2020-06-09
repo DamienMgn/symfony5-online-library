@@ -16,12 +16,12 @@
 				</button>
 				<a class="navbar-brand" href="#">
 					<i class="fa fa-book"></i>
-					<span class="navbar-title">BOOKS</span>
+					<span class="navbar-title">BooksAddict</span>
 				</a>
 
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 					<form class="navbar-form">
-						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<input class="form-control mr-sm-2" type="search" placeholder="Titre, Auteur, ISBN..." aria-label="Search">
 						<button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
 					</form>
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -29,13 +29,18 @@
 							<a class="nav-link" href="#">Connexion</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">S'inscrire</a>
+							<a class="nav-link" href="#">Inscription</a>
 						</li>
 					</ul>
 				</div>
 			</nav>
 		</header>
+		<div class="container">
 		{% block body %}{% endblock %}
+		</div>
+		<footer class="footer">
+		
+		</footer>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
 		{% block javascripts %}{% endblock %}

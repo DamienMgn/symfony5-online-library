@@ -4,8 +4,88 @@
 
 {% block body %}
 
-<section class="banner-area">
 
+{# section banner #}
+<section class="banner-area">
+  <div class="row banner-img">
+    <div class="col">
+    </div>
+    <div class="col">
+      <p class="banner-description">BooksAddict votre bibliothéque en ligne !</p>
+    </div>
+  </div>
+  <div class="row row-services">
+    <div class="d-flex justify-content-center services">
+        <div class="p-2 bd-highlight d-flex justify-content-center service">
+            <p class="p-2 bd-highlight align-self-center">Créer vos catégories pour classer vos livres</p>
+        </div>
+        <div class="p-2 bd-highlight d-flex justify-content-center service">
+            <p class="p-2 bd-highlight align-self-center">Créer vos catégories pour classer vos livres</p>
+        </div>
+        <div class="p-2 bd-highlight d-flex justify-content-center service">
+            <p class="p-2 bd-highlight align-self-center">Créer vos catégories pour classer vos livres</p>
+        </div>
+        <div class="p-2 bd-highlight d-flex justify-content-center service">
+            <p class="p-2 bd-highlight align-self-center">Créer vos catégories pour classer vos livres</p>
+        </div>
+    </div>
+  </div>
 </section>
+
+{# section new Books #}
+<section class="home-books-container align-self-center">
+    <h2 class="title-h2 title-home">Dernières sorties</h2>
+    <div class="row d-flex justify-content-center books-home">
+		<div class="card book-home">
+			<img class="card-img-top" src="{{ asset('images/cover1.jpg') }}" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+		<div class="card book-home">
+			<img class="card-img-top" src="{{ asset('images/cover2.jpg') }}" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+		<div class="card book-home">
+			<img class="card-img-top" src="{{ asset('images/cover3.jpg') }}" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+		<div class="card book-home">
+			<img class="card-img-top" src="{{ asset('images/cover3.jpg') }}" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+		<div class="card book-home">
+			<img class="card-img-top" src="{{ asset('images/cover2.jpg') }}" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+		<div class="card book-home">
+			<img class="card-img-top" src="{{ asset('images/cover1.jpg') }}" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+    </div>
+</section>
+
 
 {% endblock %}
