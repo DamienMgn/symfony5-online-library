@@ -90,6 +90,10 @@ body {
 
 /* banner */
 
+.banner-area {
+    margin-bottom: 5rem;
+}
+
 .banner-area .banner-img {
     min-height: 80%;
     background-image: url('../images/cover2.jpg');
@@ -126,4 +130,25 @@ body {
 .service p {
     color: #FFFFFF;
     text-align: center;
-} 
+}
+
+/* new books */
+
+.home-books-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.books-home {
+    max-width: 1352px !important;
+    margin: 2rem;
+}
+
+.book-home {
+    background-color: #F3F3F3;
+    height: 25rem;
+    max-width: 25rem !important;
+    min-width: 20rem !important;
+    margin: 1rem;
+}
