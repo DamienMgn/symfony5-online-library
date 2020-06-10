@@ -20,8 +20,8 @@
 				</a>
 
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-					<form class="navbar-form">
-						<input class="form-control mr-sm-2" type="search" placeholder="Titre, Auteur, ISBN..." aria-label="Search">
+					<form class="navbar-form" method="POST" action="{{ path("show_books") }}">
+						<input class="form-control mr-sm-2" name="userSearch" type="search" placeholder="Titre, Auteur, ISBN..." aria-label="Search">
 						<button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
 					</form>
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
