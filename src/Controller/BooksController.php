@@ -10,18 +10,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class BooksController extends AbstractController
 {
     /**
-     * @Route("/search-books", name="show_books", methods={"POST"})
+     * @Route("/search-books", name="app_search", methods={"POST"})
      */
     public function index(Request $request)
     {
 
         $search = $request->request->get('userSearch');
 
-
-        dump($search); exit;
-
         $client = HttpClient::create();
-        $response = $client->request('GET', 'https://www.googleapis.com/books/v1/volumes?q=bernard+minier');
+        $response = $client->request('GET', 'https://www.googleapis.com/books/v1/volumes?q=' . $search);
 
         $content = $response->toArray()['items'];
         

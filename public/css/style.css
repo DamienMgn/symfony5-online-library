@@ -121,7 +121,7 @@ body {
 
 .banner-area .services {
     width: 100%;
-    background-color: rgba(26, 26, 26, 1);
+    background-color: rgba(26, 26, 26, 0.7);
     padding: 1rem 0rem;
 }
 
@@ -163,4 +163,23 @@ body {
 .book-home .card-img-top {
     height: 12rem;
 }
+
+
+/********************************** SEARCH PAGE **********************************/
+
+.books-container {
+    background-color: #F1F1F1
+}
+
+.book-container {
+    background-color: #FFFFFF;
+    margin: 1rem;
+}
+
+.book-img {
+    width: 6.5rem;
+    height: 10rem;
+    margin: 1rem 0;
+}
+
 

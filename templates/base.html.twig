@@ -14,13 +14,13 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="{{ path("app_home") }}">
 					<i class="fa fa-book"></i>
 					<span class="navbar-title">BooksAddict</span>
 				</a>
 
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-					<form class="navbar-form" method="POST" action="{{ path("show_books") }}">
+					<form class="navbar-form" method="POST" action="{{ path("app_search") }}">
 						<input class="form-control mr-sm-2" name="userSearch" type="search" placeholder="Titre, Auteur, ISBN..." aria-label="Search">
 						<button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
 					</form>
