@@ -25,12 +25,18 @@
 						<button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
 					</form>
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						{% if not app.user %}
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path("app_login") }}">Connexion</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path("app_register") }}">Inscription</a>
 						</li>
+						{% else %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path("app_register") }}">Mon compte</a>
+						</li>
+						{% endif %}
 					</ul>
 				</div>
 			</nav>
