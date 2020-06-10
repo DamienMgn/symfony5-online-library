@@ -168,7 +168,7 @@ body {
 /********************************** SEARCH PAGE **********************************/
 
 .books-container {
-    background-color: #F1F1F1
+    background-color: #E9E9E9;
 }
 
 .book-container {
@@ -181,5 +181,6 @@ body {
     height: 10rem;
     margin: 1rem 0;
 }
+
 
 
