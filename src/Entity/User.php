@@ -34,6 +34,13 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $pseudo;
+
+    private $check_password;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,5 +117,29 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getCheckPassword(): ?string
+    {
+        return $this->check_password;
+    }
+
+    public function setCheckPassword(string $check_password): self
+    {
+        $this->check_password = $check_password;
+
+        return $this;
     }
 }
