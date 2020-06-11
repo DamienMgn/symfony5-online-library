@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
@@ -54,6 +56,16 @@ class User implements UserInterface
      * @Assert\EqualTo(propertyPath="password", message="la confirmation doit être égale au mot de passe")
      */
     private $check_password;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Book::class, inversedBy="users")
+     */
+    private $books;
+
+    public function __construct()
+    {
+        $this->books = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -153,6 +165,32 @@ class User implements UserInterface
     public function setCheckPassword(string $check_password): self
     {
         $this->check_password = $check_password;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Book[]
+     */
+    public function getBooks(): Collection
+    {
+        return $this->books;
+    }
+
+    public function addBook(Book $book): self
+    {
+        if (!$this->books->contains($book)) {
+            $this->books[] = $book;
+        }
+
+        return $this;
+    }
+
+    public function removeBook(Book $book): self
+    {
+        if ($this->books->contains($book)) {
+            $this->books->removeElement($book);
+        }
 
         return $this;
     }
