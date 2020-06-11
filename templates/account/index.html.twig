@@ -3,18 +3,55 @@
 {% block title %}Hello AccountController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="container">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_account') }}">Mes livres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_categories') }}">Mes catégories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mon compte</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Je sais pas trop</a>
+            </li>
+        </ul>
+        <div class="row books-container justify-content-md-center">
+        {% for book in books %}
+            <div class="col-sm-8 book-container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        {% if book.thumbnail is defined %}
+                        <img src="{{ book.thumbnail }}" alt="couverture" class="book-img">
+                        {% else %}
+                        <img src="{{ asset('images/no-image.jpg') }}" alt="couverture" class="book-img">
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-8">
+                        <h4 class="book-title">{{ book.title }}</h4>
+                        <ul class="authors">
+                            {% if book.authors is defined %}
+                                {% for author in book.authors %}
+                                <li class="author">
+                                    {{ author }}
+                                </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
+                            <input type="hidden" name="bookId" value="{{book.bookId}}">
+                            <button type="submit" class="btn btn-primary">Ajouter à mes livres</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/damien/Desktop/my-library/src/Controller/AccountController.php'|file_link(0) }}">src/Controller/AccountController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/damien/Desktop/my-library/templates/account/index.html.twig'|file_link(0) }}">templates/account/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}

@@ -59,9 +59,15 @@ class Book
      */
     private $users;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, mappedBy="books")
+     */
+    private $categories;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -69,7 +75,7 @@ class Book
         return $this->id;
     }
 
-    public function getBookId(): ?int
+    public function getBookId(): ?string
     {
         return $this->bookId;
     }
@@ -176,6 +182,34 @@ class Book
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
             $user->removeBook($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->addBook($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        if ($this->categories->contains($category)) {
+            $this->categories->removeElement($category);
+            $category->removeBook($this);
         }
 
         return $this;
