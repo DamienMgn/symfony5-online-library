@@ -231,4 +231,16 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function ownBook(string $bookId): bool
+    {
+        foreach ($this->books as $book) {
+            if ($book->getBookId() === $bookId) {
+                return true;
+                exit;
+            }
+        }
+
+        return false;
+    }
 }
