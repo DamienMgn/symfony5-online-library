@@ -22,6 +22,7 @@ body {
 
 .navbar {
     background: #F54052 !important;
+    height: 7rem;
 }
 
 .navbar-collapse {
@@ -54,7 +55,7 @@ body {
 .nav-link {
     color: #FFFFFF !important;
     margin: 0rem 0rem;
-    padding: 0.5rem 1rem !important;
+    padding: 0.5rem 0rem 0.5rem 2rem !important;
     border-radius: 50px;
     font-size: 0.9rem;
     font-weight: bold;
@@ -86,6 +87,12 @@ body {
     margin-left: -8px;
 }
 
+.icon-sn {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    margin: 0rem 1.2rem;
+}
+
 /***************** footer *****************/
 
 .footer {
@@ -100,8 +107,8 @@ body {
 /***************** banner *****************/
 
 .banner-area .banner-img {
-    min-height: 85%;
-    background-image: url('../images/cover2.jpg');
+    min-height: 100%;
+    background-image: linear-gradient(rgba(26, 26, 26, 0.0), rgba(26, 26, 26, 0.0)), url('../images/cover2.jpg');
     background-size: cover;
 }
 
@@ -112,17 +119,20 @@ body {
 }
 
 .banner-description {
-    font-size: 4.5rem !important;
+    font-size: 3.5rem !important;
     line-height: 1.4;
     max-width: 37rem;
+    color: #2A2A2A;
+    margin-top: -5rem;
 }
 
 /***************** service *****************/
 
-.banner-area .services {
+.services {
     width: 100%;
-    background-color: rgba(26, 26, 26, 0.7);
-    padding: 1rem 0rem;
+    background-color: rgba(26, 26, 26, 0.2);
+    padding: 5rem 0rem;
+    margin-top: 10rem;
 }
 
 .service {
