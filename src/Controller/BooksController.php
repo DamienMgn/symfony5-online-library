@@ -63,7 +63,6 @@ class BooksController extends AbstractController
             $book->setThumbnail($content['volumeInfo']['imageLinks']['thumbnail']);
             $book->addUser($user);
             $em->persist($book);
-            $em->flush();
         } else {
             $users = $bookIsInDB[0]->getUsers();
 
@@ -81,8 +80,9 @@ class BooksController extends AbstractController
             }
     
             $em->persist($bookIsInDB[0]);
-            $em->flush();
         }
+        
+        $em->flush();
                 
         return $this->redirectToRoute('app_account');
     }

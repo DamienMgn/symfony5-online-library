@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_account') }}">Mes livres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_categories') }}">Mes catégories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mon compte</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Je sais pas trop</a>
+            </li>
+        </ul>
+        <h4>Ajouter une catégorie</h4>
+        <form action="{{ path('app_add_category') }}" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Default input" name="category">
+                <button type="submit">Ajouter</button>
+            </div>
+        </form>
+        {% for category in categories %}
+            {{category.name}}
+            <form action="{{ path('app_delete_category', {'category': category.id}) }}" method="POST">
+                <button type="submit">Supprimer</button>
+            </form>
+        {% endfor %}
+    </div>
+
+{% endblock %}
