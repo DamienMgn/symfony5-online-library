@@ -69,7 +69,7 @@ class Book
         return $this->id;
     }
 
-    public function getBookId(): ?int
+    public function getBookId(): ?string
     {
         return $this->bookId;
     }

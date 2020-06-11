@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/account")
@@ -15,6 +15,12 @@ class AccountController extends AbstractController
      */
     public function index()
     {
-        
+        $user = $this->getUser();
+
+        $books = $user->getBooks();
+
+        return $this->render('account/index.html.twig', [
+            'books' => $books,
+        ]);
     }
 }

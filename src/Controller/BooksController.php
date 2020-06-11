@@ -80,11 +80,10 @@ class BooksController extends AbstractController
                 $bookIsInDB[0]->addUser($user);
             }
     
-    
             $em->persist($bookIsInDB[0]);
             $em->flush();
         }
                 
-        return $this->redirectToRoute('app_home');
+        return $this->redirectToRoute('app_account');
     }
 }
