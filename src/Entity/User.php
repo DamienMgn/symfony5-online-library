@@ -55,7 +55,7 @@ class User implements UserInterface
     /**
      * @Assert\EqualTo(propertyPath="password", message="la confirmation doit être égale au mot de passe")
      */
-    private $check_password;
+    private $checkPassword;
 
     /**
      * @ORM\ManyToMany(targetEntity=Book::class, inversedBy="users")
@@ -165,12 +165,12 @@ class User implements UserInterface
 
     public function getCheckPassword(): ?string
     {
-        return $this->check_password;
+        return $this->checkPassword;
     }
 
-    public function setCheckPassword(string $check_password): self
+    public function setCheckPassword(string $checkPassword): self
     {
-        $this->check_password = $check_password;
+        $this->checkPassword = $checkPassword;
 
         return $this;
     }

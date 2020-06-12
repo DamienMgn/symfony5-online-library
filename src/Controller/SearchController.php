@@ -84,6 +84,6 @@ class SearchController extends AbstractController
         
         $em->flush();
                 
-        return $this->redirectToRoute('app_account');
+        return $this->redirectToRoute('app_library');
     }
 }
