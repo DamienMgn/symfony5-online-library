@@ -1,40 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccountController!{% endblock %}
+{% block title %}Books{% endblock %}
 
 {% block body %}
 
     <div class="container">
-        <ul class="nav nav-tabs justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_account') }}">Mes livres</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_categories') }}">Mes catégories</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Mon compte</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Je sais pas trop</a>
-            </li>
-        </ul>
         <div class="row books-container justify-content-md-center">
         {% for book in books %}
             <div class="col-sm-8 book-container">
                 <div class="row">
                     <div class="col-sm-2">
-                        {% if book.thumbnail is defined %}
-                        <img src="{{ book.thumbnail }}" alt="couverture" class="book-img">
+                        {% if book.volumeInfo.imageLinks is defined %}
+                        <img src="{{ book.volumeInfo.imageLinks.smallThumbnail }}" alt="couverture" class="book-img">
                         {% else %}
                         <img src="{{ asset('images/no-image.jpg') }}" alt="couverture" class="book-img">
                         {% endif %}
                     </div>
                     <div class="col-sm-8">
-                        <h4 class="book-title">{{ book.title }}</h4>
+                        <h4 class="book-title">{{ book.volumeInfo.title }}</h4>
                         <ul class="authors">
-                            {% if book.authors is defined %}
-                                {% for author in book.authors %}
+                            {% if book.volumeInfo.authors is defined %}
+                                {% for author in book.volumeInfo.authors %}
                                 <li class="author">
                                     {{ author }}
                                 </li>
@@ -44,7 +30,10 @@
                     </div>
                     <div class="col-sm-2">
                         <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
-                            <input type="hidden" name="bookId" value="{{book.bookId}}">
+                            <input type="hidden" name="bookId" value="{{book.id}}">
+                            {% if app.user is not null and app.user.ownBook(book.id) %}
+                                oui
+                            {% endif %}
                             <button type="submit" class="btn btn-primary">Ajouter à mes livres</button>
                         </form>
                     </div>

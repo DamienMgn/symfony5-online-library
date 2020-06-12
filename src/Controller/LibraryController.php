@@ -10,10 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
  * @Route("/account")
  */
-class AccountController extends AbstractController
+class LibraryController extends AbstractController
 {
     /**
-     * @Route("/", name="app_account")
+     * @Route("/", name="app_library")
      */
     public function index()
     {
@@ -21,7 +21,7 @@ class AccountController extends AbstractController
 
         $books = $user->getBooks();
 
-        return $this->render('account/index.html.twig', [
+        return $this->render('library/user-books.html.twig', [
             'books' => $books,
         ]);
     }
@@ -35,7 +35,7 @@ class AccountController extends AbstractController
 
         $categories = $user->getCategories();
 
-        return $this->render('account/categories.html.twig', [
+        return $this->render('library/categories.html.twig', [
             'categories' => $categories,
         ]);
     }

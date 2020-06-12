@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-class BooksController extends AbstractController
+class SearchController extends AbstractController
 {
     /**
      * @Route("/search-books", name="app_search", methods={"POST"})
@@ -25,7 +25,7 @@ class BooksController extends AbstractController
 
         $content = $response->toArray()['items'];
         
-        return $this->render('books/index.html.twig', [
+        return $this->render('search/index.html.twig', [
             'books' => $content
         ]);
     }
