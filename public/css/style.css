@@ -16,13 +16,15 @@ body {
     max-width: 100vw !important;
     min-width: 100vw !important;
     padding: 0 !important;
+    min-height: calc(100vh - 15rem);
+    background-color: #F3F3F3 !important;
 }
 
 /***************** header *****************/
 
 .navbar {
     background: #F54052 !important;
-    height: 7rem;
+    height: 5rem;
 }
 
 .navbar-collapse {
@@ -99,7 +101,23 @@ body {
     width: 100%;
     height: 15rem;
     background-color: #1A1A1A;
-    margin-top: 3rem;
+}
+
+/********************************** SECURITY **********************************/
+
+.auth-form {
+    margin: 3rem 0rem !important;
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.auth-form .h3 {
+    padding: 0rem 2rem;
+}
+
+.auth-form .form-group {
+    padding: 0rem 2rem !important;
 }
 
 /********************************** HOME **********************************/
@@ -130,9 +148,8 @@ body {
 
 .services {
     width: 100%;
-    background-color: rgba(26, 26, 26, 0.2);
+    background-color: #FFFFFF;
     padding: 5rem 0rem;
-    margin-top: 10rem;
 }
 
 .service {
@@ -154,7 +171,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10rem;
+    margin-top: 5rem;
 }
 
 .books-home {
@@ -163,7 +180,7 @@ body {
 }
 
 .book-home {
-    background-color: #F3F3F3;
+    background-color: #FFFFFF;
     height: 25rem;
     max-width: 25rem !important;
     min-width: 20rem !important;
@@ -176,10 +193,6 @@ body {
 
 
 /********************************** SEARCH PAGE **********************************/
-
-.books-container {
-    background-color: #E9E9E9;
-}
 
 .book-container {
     background-color: #FFFFFF;
