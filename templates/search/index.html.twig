@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row books-container justify-content-md-center">
         {% for book in books %}
-            <div class="col-sm-8 book-container">
+            <div class="col-sm-6 book-container">
                 <div class="row">
                     <div class="col-sm-2">
                         {% if book.volumeInfo.imageLinks is defined %}
@@ -27,14 +27,20 @@
                                 {% endfor %}
                             {% endif %}
                         </ul>
+                        <p class="book-description">{{ book.volumeInfo.publishedDate | date("d-m-Y") }}</p>
+                        <p class="book-description">{{ book.volumeInfo.description | slice(0, 150) }}...</p>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 d-flex align-items-center">
                         <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
                             <input type="hidden" name="bookId" value="{{book.id}}">
+                            <button type="submit" class="btn">
                             {% if app.user is not null and app.user.ownBook(book.id) %}
-                                oui
+                                <i class="btn-add-book fa fa-bookmark"></i>
+                            {% else %}
+                                <i class="btn-add-book fa fa-list-alt"></i>
                             {% endif %}
-                            <button type="submit" class="btn btn-primary">Ajouter</button>
+
+                            </button>
                         </form>
                     </div>
                 </div>

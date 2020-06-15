@@ -10,12 +10,6 @@
                 <a class="nav-link" href="{{ path('app_library') }}">Mes livres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_categories') }}">Mes catégories</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Mon compte</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#">Je sais pas trop</a>
             </li>
         </ul>
@@ -41,11 +35,19 @@
                                 {% endfor %}
                             {% endif %}
                         </ul>
+                        <p class="book-description">{{ book.publishedDate | date("d-m-Y") }}</p>
+                        <p class="book-description">{{ book.description | slice(0, 150) }}...</p>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 d-flex align-items-center">
                         <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
-                            <input type="hidden" name="bookId" value="{{book.bookId}}">
-                            <button type="submit" class="btn btn-primary">Ajouter à mes livres</button>
+                            <input type="hidden" name="bookId" value="{{book.id}}">
+                            <button type="submit" class="btn">
+                            {% if app.user is not null and app.user.ownBook(book.bookId) %}
+                                <i class="btn-add-book fa fa-bookmark"></i>
+                            {% else %}
+                                <i class="btn-add-book fa fa-list-alt"></i>
+                            {% endif %}
+                            </button>
                         </form>
                     </div>
                 </div>
