@@ -211,7 +211,7 @@ header {
 
 .book-container {
     background-color: #FFFFFF;
-    margin: 1rem;
+    margin: 0rem 1rem 1rem 1rem;
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 1px 1px 1px #E1E1E1, -1px -1px 1px #E1E1E1;
@@ -243,7 +243,7 @@ header {
     font-size: 2.3rem !important;
 }
 
-/********************************** ACCOUNT **********************************/
+/********************************** USER BOOKS **********************************/
 
 .nav {
     background-color: #000000;
@@ -252,6 +252,11 @@ header {
 .nav .nav-link {
     color: #FFFFFF;
 }
+
+.categories-container {
+    padding-top: 3rem;
+}
+
 
 
 
