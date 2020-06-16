@@ -6,6 +6,11 @@
 
     <div class="container">
         <div class="row books-container justify-content-md-center">
+        <div class="error-container">
+            {% if error | length > 1 %}
+                {{ error }}
+            {% endif %}
+        </div>
         {% for book in books %}
             <div class="col-sm-6 book-container">
                 <div class="row">
@@ -27,8 +32,12 @@
                                 {% endfor %}
                             {% endif %}
                         </ul>
+                        {% if book.volumeInfo.publishedDate is defined %}
                         <p class="book-description">{{ book.volumeInfo.publishedDate | date("d-m-Y") }}</p>
-                        <p class="book-description">{{ book.volumeInfo.description | slice(0, 150) }}...</p>
+                        {% endif %}
+                        {% if book.volumeInfo.description is defined %}
+                        <p class="">{{ book.volumeInfo.description | slice(0, 150) }}...</p>
+                        {% endif %}
                     </div>
                     <div class="col-sm-2 d-flex align-items-center">
                         <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
@@ -39,7 +48,6 @@
                             {% else %}
                                 <i class="btn-add-book fa fa-list-alt"></i>
                             {% endif %}
-
                             </button>
                         </form>
                     </div>
