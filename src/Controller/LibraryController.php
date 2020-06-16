@@ -20,9 +20,11 @@ class LibraryController extends AbstractController
         $user = $this->getUser();
 
         $books = $user->getBooks();
+        $categories = $user->getCategories();
 
         return $this->render('library/user-books.html.twig', [
             'books' => $books,
+            'categories' => $categories
         ]);
     }
 
@@ -57,7 +59,7 @@ class LibraryController extends AbstractController
         $em->persist($category);
         $em->flush();
 
-        return $this->redirectToRoute('app_categories');
+        return $this->redirectToRoute('app_library');
     }
 
     /**

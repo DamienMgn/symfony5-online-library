@@ -13,46 +13,63 @@
                 <a class="nav-link" href="#">Je sais pas trop</a>
             </li>
         </ul>
-        <div class="row books-container justify-content-md-center">
-        {% for book in books %}
-            <div class="col-sm-8 book-container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        {% if book.thumbnail is defined %}
-                        <img src="{{ book.thumbnail }}" alt="couverture" class="book-img">
-                        {% else %}
-                        <img src="{{ asset('images/no-image.jpg') }}" alt="couverture" class="book-img">
-                        {% endif %}
+        <div class="row justify-content-md-center">
+            <div class="col-sm-3 categories-container">
+                <form action="{{ path('app_add_category') }}" method="POST">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Default input" name="category">
+                        <button type="submit">Ajouter</button>
                     </div>
-                    <div class="col-sm-8">
-                        <h4 class="book-title">{{ book.title }}</h4>
-                        <ul class="authors">
-                            {% if book.authors is defined %}
-                                {% for author in book.authors %}
-                                <li class="author">
-                                    {{ author }}
-                                </li>
-                                {% endfor %}
-                            {% endif %}
-                        </ul>
-                        <p class="book-description">{{ book.publishedDate | date("d-m-Y") }}</p>
-                        <p class="book-description">{{ book.description | slice(0, 150) }}...</p>
-                    </div>
-                    <div class="col-sm-2 d-flex align-items-center">
-                        <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
-                            <input type="hidden" name="bookId" value="{{book.bookId}}">
-                            <button type="submit" class="btn">
-                            {% if app.user is not null and app.user.ownBook(book.bookId) %}
-                                <i class="btn-add-book fa fa-bookmark"></i>
-                            {% else %}
-                                <i class="btn-add-book fa fa-list-alt"></i>
-                            {% endif %}
-                            </button>
-                        </form>
-                    </div>
+                </form>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        {% for category in categories %}
+                        <li class="list-group-item">{{category.name}}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
-        {% endfor %}
+            <div class="col-sm-6 books-container">
+                {% for book in books %}
+                <div class="col-sm-12 book-container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            {% if book.thumbnail is defined %}
+                            <img src="{{ book.thumbnail }}" alt="couverture" class="book-img">
+                            {% else %}
+                            <img src="{{ asset('images/no-image.jpg') }}" alt="couverture" class="book-img">
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-8">
+                            <h4 class="book-title">{{ book.title }}</h4>
+                            <ul class="authors">
+                                {% if book.authors is defined %}
+                                    {% for author in book.authors %}
+                                    <li class="author">
+                                        {{ author }}
+                                    </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                            <p class="book-description">{{ book.publishedDate | date("d-m-Y") }}</p>
+                            <p class="book-description">{{ book.description | slice(0, 150) }}...</p>
+                        </div>
+                        <div class="col-sm-2 d-flex align-items-center">
+                            <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
+                                <input type="hidden" name="bookId" value="{{book.bookId}}">
+                                <button type="submit" class="btn">
+                                {% if app.user is not null and app.user.ownBook(book.bookId) %}
+                                    <i class="btn-add-book fa fa-bookmark"></i>
+                                {% else %}
+                                    <i class="btn-add-book fa fa-list-alt"></i>
+                                {% endif %}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
