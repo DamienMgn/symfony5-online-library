@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-sm-2 d-flex align-items-center">
                         <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
-                            <input type="hidden" name="bookId" value="{{book.id}}">
+                            <input type="hidden" name="bookId" value="{{book.bookId}}">
                             <button type="submit" class="btn">
                             {% if app.user is not null and app.user.ownBook(book.bookId) %}
                                 <i class="btn-add-book fa fa-bookmark"></i>

@@ -23,10 +23,18 @@ class SearchController extends AbstractController
         $client = HttpClient::create();
         $response = $client->request('GET', 'https://www.googleapis.com/books/v1/volumes?q=' . $search);
 
-        $content = $response->toArray()['items'];
+        $content = [];
+        $error = '';
+
+        if (isset($response->toArray()['items'])) {
+            $content = $response->toArray()['items'];
+        } else {
+            $error = "Aucun résultat pour cette recherche.";
+        }
         
         return $this->render('search/index.html.twig', [
-            'books' => $content
+            'books' => $content,
+            'error' => $error
         ]);
     }
 
@@ -56,11 +64,15 @@ class SearchController extends AbstractController
             $book = new Book;
             $book->setBookId($content['id']);
             $book->setTitle($content['volumeInfo']['title']);
-            $book->setDescription($content['volumeInfo']['description']);
+            if (isset($content['volumeInfo']['description'])) {
+                $book->setDescription($content['volumeInfo']['description']);
+            }
             $book->setPublishedDate(null);
             $book->setPublisher($content['volumeInfo']['publisher']);
             $book->setPageCount($content['volumeInfo']['pageCount']);
-            $book->setThumbnail($content['volumeInfo']['imageLinks']['thumbnail']);
+            if (isset($content['volumeInfo']['imageLinks'])) {
+                $book->setThumbnail($content['volumeInfo']['imageLinks']['thumbnail']);
+            }
             $book->addUser($user);
             $em->persist($book);
         } else {
