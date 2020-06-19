@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ book.volumeInfo.title }}{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {{ book.volumeInfo.title }}
+    </div>
+
+{% endblock %}

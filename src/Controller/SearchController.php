@@ -39,6 +39,23 @@ class SearchController extends AbstractController
     }
 
     /**
+     * @Route("/single-book/{bookId}", name="app_single_book")
+     */
+    public function singleBook(Request $request, String $bookId)
+    {
+
+        $client = HttpClient::create();
+        $response = $client->request('GET', 'https://www.googleapis.com/books/v1/volumes/' . $bookId);
+
+        $content = $response->toArray();
+
+        return $this->render('search/single-book.html.twig', [
+            'book' => $content,
+        ]);
+
+    }
+
+    /**
      * @Route("/add-book", name="app_add_book", methods={"POST"})
      */
     public function addBook(Request $request)

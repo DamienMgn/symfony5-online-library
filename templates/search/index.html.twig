@@ -38,6 +38,7 @@
                         {% if book.volumeInfo.description is defined %}
                         <p class="">{{ book.volumeInfo.description | slice(0, 150) }}...</p>
                         {% endif %}
+                        <a href="{{ path('app_single_book', {'bookId': book.id}) }}">Voir plus</a>
                     </div>
                     <div class="col-sm-2 d-flex align-items-center">
                         <form action="{{ path('app_add_book') }}" class="form-add-book" method="POST">
