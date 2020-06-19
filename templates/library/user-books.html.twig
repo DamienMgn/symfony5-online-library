@@ -5,16 +5,8 @@
 {% block body %}
 
     <div class="container">
-        <ul class="nav nav-tabs justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_library') }}">Mes livres</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Je sais pas trop</a>
-            </li>
-        </ul>
         <div class="row justify-content-md-center">
-            <div class="col-sm-3 categories-container">
+            <div class="col-sm-2 categories-container">
                 <form action="{{ path('app_add_category') }}" method="POST">
                     <div class="form-group">
                         <input class="form-control" type="text" placeholder="Default input" name="category">
